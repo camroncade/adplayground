@@ -1,0 +1,117 @@
+body, * {
+    font-family: -apple-system, BlinkMacSystemFont, 
+    "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", 
+    "Fira Sans", "Droid Sans", "Helvetica Neue", 
+    sans-serif;
+}
+
+.details {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 600px;
+}
+
+.ad-preview {
+    margin: 0 auto;
+    padding: 1rem;
+    width: 600px;
+    text-align: center;
+}
+
+.currently-editing {
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin: 1rem;
+}
+
+label {
+    display: inline-block;
+    width: 100px;
+    text-align: right;
+    padding-right: 1rem;
+}
+
+input {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    width: 384px;
+}
+
+textarea {
+    font-size: 0.85rem;
+    padding: 0.25rem 0.5rem;
+    width: 386px;
+}
+
+.ad-desktop {
+    font-family: arial,helvetica,sans-serif;
+    text-align: left;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 15px 13px !important;
+    margin: 0;
+    width: 528px;
+}
+
+.ad-title {
+    display: block;
+    color: #1a0dab;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 18px;
+}
+
+.ad-title:hover {
+    text-decoration: underline;
+    cursor: pointer; cursor: hand;
+}
+
+.ad-label {
+    border-radius: 2px;
+    border: 1px solid #006621;
+    color: #006621;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 14px;
+    margin-left: 0;
+    margin-right: 2px;
+    padding: 0 2px;
+    vertical-align: baseline;
+}
+
+.ad-url {
+    color: #006621;
+    font-size: 14px;
+}
+
+.ad-description {
+    font-size: 13px;
+    color: #545454;
+    display: block;
+    line-height: 18px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.ads-list .ad-desktop {
+    border-bottom: 0px;
+    position: relative;
+}
+
+.ads-list .ad-desktop:last-child {
+    border-bottom: 1px solid #ccc;
+}
+
+.error {
+    outline-color: red;
+}
+
+.options {
+    position: absolute;
+    top: 0;
+    right: -1.5em;
+}

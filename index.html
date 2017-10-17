@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Ad Draft</title>
+        <link rel="stylesheet" href="site.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    </head>
+    <body>
+    <div id="app">
+        <div class="details">
+            <div class="form-group">
+                <label for="headline-1">Headline 1</label>
+                <input type="text" id="headline-1" v-model="headline1" v-bind:class="{ error: headline1.length > 30 }">
+            </div>
+            <div class="form-group">
+                <label for="headline-2">Headline 2</label>
+                <input type="text" id="headline-2" v-model="headline2" v-bind:class="{ error: headline2.length > 30 }">
+            </div>
+            <div class="form-group">
+                <label for="url">Display URL</label>
+                <input type="text" id="url" v-model="url">
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea name="description" id="description" v-model="description" v-bind:class="{ error: description.length > 80 }"></textarea>
+            </div>
+            <div class="form-group">
+                <button @click="addToList">Add to collection</button>
+            </div>
+        </div>
+
+        <div class="ad-preview">
+            <div class="currently-editing">
+                <div class="ad-desktop">
+                    <span class="ad-title">{{ headline1 }} - {{ headline2 }}</span>
+                    <span class="ad-label">Ad</span>
+                    <span class="ad-url">{{ url }}</span>
+                    <span class="ad-description">{{ description }}</span>
+                </div>
+            </div>
+
+            <div class="ads-list">
+                <div class="ad-desktop" v-for="(ad, index) in ads">
+                    <span class="ad-title">{{ ad.headline1 }} - {{ ad.headline2 }}</span>
+                    <span class="ad-label">Ad</span>
+                    <span class="ad-url">{{ ad.url }}</span>
+                    <span class="ad-description">{{ ad.description }}</span>
+                    <div class="options">
+                        <a href="#" @click="removeAd(index)">D</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </body>
+    <script src="https://unpkg.com/vue"></script>
+    <script src="site.js" type="text/javascript" charset="utf-8"></script>
+</html>
