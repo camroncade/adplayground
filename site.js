@@ -1,3 +1,12 @@
+Array.prototype.uniqueMerge = function( a ) {
+    for ( var nonDuplicates = [], i = 0, l = a.length; i<l; ++i ) {
+        if ( this.indexOf( a[i] ) === -1 ) {
+            nonDuplicates.push( a[i] );
+        }
+    }
+    return this.concat( nonDuplicates )
+};
+
 var app = new Vue({
     el: '#app',
     data: {
@@ -7,6 +16,35 @@ var app = new Vue({
         description: 'Experience all the comforts of home. Save with multi-day booking. Reserve now!',
         ads: [],
         edit: true,
+        adFilter: null,
+    },
+    computed: {
+        'tags': function () {
+            tags = [];
+            for (i = 0; i < this.ads.length; i++) {
+                adTags = this.ads[i].tags;
+                if (adTags.length) {
+                    adTags = adTags.split(',');
+                    tags = tags.uniqueMerge(adTags);
+               }
+            }
+            return tags;
+        },
+        adsToShow: function () {
+            if (this.adFilter == null) {
+                return this.ads;
+            } else {
+                return this.ads.filter(function (ad, id) {
+                    return ad.tags.indexOf(this.adFilter) !== -1;
+                }.bind(this));
+            }
+        },
+        newAdTag: function () {
+            if (this.adFilter == null)
+                return '';
+            else
+                return this.adFilter;
+        }
     },
     methods: {
         addToList: function () {
@@ -17,6 +55,7 @@ var app = new Vue({
                 description: this.description,
                 id: this.ads.length,
                 edit: false,
+                tags: this.newAdTag,
             })
 
             this.headline1 = 'Example Ad';
@@ -38,6 +77,7 @@ var app = new Vue({
         this.ads = JSON.parse(window.localStorage.getItem('ipx-addraft-items')) || [];
         this.ads.map(function(ad, id) {
             ad.edit = false;
+            ad.editTags = false;
         });
     }
 })

@@ -39,9 +39,17 @@
                     <span class="ad-description">{{ description }}</span>
                 </div>
             </div>
+        </div>
 
+        <div class="container">
+            <div class="tags">
+                <ul>
+                    <li><a href="#" @click.prevent="adFilter = null" :class="{selected: adFilter == null}">All</a>
+                    <li v-for="tag in tags"><a href="#" @click.prevent="adFilter = tag" :class="{selected: adFilter == tag}">{{ tag }}</a></li>
+                </ul>
+            </div>
             <div class="ads-list">
-                <div class="ad-desktop" v-for="(ad, index) in ads">
+                <div class="ad-desktop" v-for="(ad, index) in adsToShow">
                     <div>
                         <span class="ad-title">{{ ad.headline1 }} - {{ ad.headline2 }}</span>
                         <span class="ad-label">Ad</span>
@@ -66,16 +74,23 @@
                             <textarea name="description" id="description" v-model="ad.description" v-bind:class="{ error: ad.description.length > 80 }"></textarea>
                         </div>
                         <div class="form-group">
-                            <button @click="ad.edit = false; save();">Save Ad</button>
+                            <button @click="ad.edit = false; save();">Save</button>
                         </div>
+                    </div>
+                    <div class="tags-editor" v-if="ad.editTags">
+                        <h4>Tags</h4>
+                        <textarea v-model="ad.tags"></textarea>
+                        <button @click="ad.editTags = false; save();">Save</button>
                     </div>
                    <div class="options">
                         <a href="#" @click.prevent="removeAd(index)">D</a>
                         <a href="#" @click.prevent="ad.edit = true">E</a>
+                        <a href="#" @click.prevent="ad.editTags = true">T</a>
                     </div>
                 </div>
             </div>
         </div>
+
     </div>
     </body>
     <script src="https://unpkg.com/vue"></script>

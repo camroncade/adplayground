@@ -123,3 +123,58 @@ textarea {
 .edit-ad {
     margin: 1em -1em -1em -1em;
 }
+
+.tags-editor {
+    margin: 1em 0 0 0;
+}
+
+.tags-editor h4 {
+    margin: 0;
+    color: #9a9a9a;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.025em;
+}
+
+.tags-editor textarea {
+    display: block;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.container .tags {
+    flex: 1 1 15%;
+    max-width: 12em;
+    min-width: 8em;
+    border-right: 1px solid #eee;
+    margin-right: 1em;
+    padding: 1em;
+}
+
+.container .ads-list {
+    flex: 1 1 85%;
+    max-width: 600px;
+}
+
+.tags ul {
+    list-style-type: none;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+}
+
+.tags ul li a {
+    color: #999;
+    text-decoration: none;
+    padding: 0.5em;
+    display: block;
+}
+
+.tags ul li a.selected {
+    color: #000;
+}
