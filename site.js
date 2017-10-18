@@ -6,6 +6,7 @@ var app = new Vue({
         url: 'http://NewYorkHotel.com/Deals',
         description: 'Experience all the comforts of home. Save with multi-day booking. Reserve now!',
         ads: [],
+        edit: true,
     },
     methods: {
         addToList: function () {
@@ -15,6 +16,7 @@ var app = new Vue({
                 url: this.url,
                 description: this.description,
                 id: this.ads.length,
+                edit: false,
             })
 
             this.headline1 = 'Example Ad';
@@ -34,5 +36,8 @@ var app = new Vue({
     },
     created: function () {
         this.ads = JSON.parse(window.localStorage.getItem('ipx-addraft-items')) || [];
+        this.ads.map(function(ad, id) {
+            ad.edit = false;
+        });
     }
 })

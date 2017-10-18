@@ -42,12 +42,36 @@
 
             <div class="ads-list">
                 <div class="ad-desktop" v-for="(ad, index) in ads">
-                    <span class="ad-title">{{ ad.headline1 }} - {{ ad.headline2 }}</span>
-                    <span class="ad-label">Ad</span>
-                    <span class="ad-url">{{ ad.url }}</span>
-                    <span class="ad-description">{{ ad.description }}</span>
-                    <div class="options">
-                        <a href="#" @click="removeAd(index)">D</a>
+                    <div>
+                        <span class="ad-title">{{ ad.headline1 }} - {{ ad.headline2 }}</span>
+                        <span class="ad-label">Ad</span>
+                        <span class="ad-url">{{ ad.url }}</span>
+                        <span class="ad-description">{{ ad.description }}</span>
+                    </div>
+                    <div class="edit-ad" v-if="ad.edit">
+                        <div class="form-group">
+                            <label for="headline-1">Headline 1</label>
+                            <input type="text" id="headline-1" v-model="ad.headline1" v-bind:class="{ error: ad.headline1.length > 30 }">
+                        </div>
+                        <div class="form-group">
+                            <label for="headline-2">Headline 2</label>
+                            <input type="text" id="headline-2" v-model="ad.headline2" v-bind:class="{ error: ad.headline2.length > 30 }">
+                        </div>
+                        <div class="form-group">
+                            <label for="url">Display URL</label>
+                            <input type="text" id="url" v-model="ad.url">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <textarea name="description" id="description" v-model="ad.description" v-bind:class="{ error: ad.description.length > 80 }"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button @click="ad.edit = false; save();">Save Ad</button>
+                        </div>
+                    </div>
+                   <div class="options">
+                        <a href="#" @click.prevent="removeAd(index)">D</a>
+                        <a href="#" @click.prevent="ad.edit = true">E</a>
                     </div>
                 </div>
             </div>

@@ -115,3 +115,11 @@ textarea {
     top: 0;
     right: -1.5em;
 }
+
+.options a {
+    display: block;
+}
+
+.edit-ad {
+    margin: 1em -1em -1em -1em;
+}
