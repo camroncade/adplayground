@@ -55,6 +55,7 @@ var app = new Vue({
                 description: this.description,
                 id: this.ads.length,
                 edit: false,
+                editTags: false,
                 tags: this.newAdTag,
             })
 

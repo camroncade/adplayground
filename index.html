@@ -77,7 +77,7 @@
                             <button @click="ad.edit = false; save();">Save</button>
                         </div>
                     </div>
-                    <div class="tags-editor" v-if="ad.editTags">
+                    <div class="tags-editor" v-show="ad.editTags">
                         <h4>Tags</h4>
                         <textarea v-model="ad.tags"></textarea>
                         <button @click="ad.editTags = false; save();">Save</button>
